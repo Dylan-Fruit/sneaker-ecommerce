@@ -1,0 +1,21 @@
+.main_imagebox {
+  &-big {
+    img {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 1rem;
+    }
+  }
+  &-thumbnail {
+    display: flex;
+    gap: 1rem;
+    img {
+      width: 22.3%;
+      cursor: pointer;
+      border-radius: 10px;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}

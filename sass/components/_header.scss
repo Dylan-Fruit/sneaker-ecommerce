@@ -1,0 +1,61 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 2rem;
+  border-bottom: solid 1px $lightGrayish;
+  margin-bottom: 5rem;
+  &_left {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    &-nav {
+      &__ul {
+        display: flex;
+        gap: 1.5rem;
+        li {
+          color: $darkGrayishBlue;
+          cursor: pointer;
+          position: relative;
+          &:hover {
+            &::after {
+              width: 100%;
+            }
+          }
+          &::after {
+            content: "";
+            height: 4px;
+            background-color: $orange;
+            position: absolute;
+            left: 50%;
+            bottom: -3rem;
+            transform: translateX(-50%);
+            -webkit-transform: translateX(-50%);
+            transition: all 0.2s ease-in-out;
+            width: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &_right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    &-avatar {
+      cursor: pointer;
+      width: 3.1rem;
+      height: 3.1rem;
+      object-fit: cover;
+      &:hover {
+        padding: 1px;
+        border: 2px solid $orange;
+        border-radius: 50%;
+      }
+    }
+    &-cart {
+      cursor: pointer;
+    }
+  }
+}
