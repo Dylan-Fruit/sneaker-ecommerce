@@ -14,7 +14,10 @@
     <title>Sneakers e-commerce | Frontend mentor</title>
   </head>
   <body>
-    <div class="lightbox"></div>
+    <div class="lightbox">
+      <div class="lightbox_mainPicture"></div>
+      <div class="lightbox_thumbnails"></div>
+    </div>
     <header class="header">
       <div class="header_left">
         <img src="./assets/logo.svg" alt="logo sneakers ecommerce" />
@@ -30,10 +33,20 @@
       </div>
       <div class="header_right">
         <img
-          class="header_right-cart"
+          class="header_right-cart__icon"
           src="./assets/icon-cart.svg"
           alt="icon panier"
         />
+        <div class="header_right-cart">
+          <div class="header_right-cart__top">
+            <p>Cart</p>
+          </div>
+          <div class="header_right-cart__bottom">
+            <div class="header_right-cart__bottom-empty">
+              <p>Your cart is empty.</p>
+            </div>
+          </div>
+        </div>
         <img
           class="header_right-avatar"
           src="./assets/image-avatar.png"
@@ -48,6 +61,7 @@
         </div>
         <div class="main_imagebox-thumbnail">
           <img
+            class="selected"
             src="./assets/image-product-1-thumbnail.jpg"
             alt="product image thumbnail"
           />
@@ -109,6 +123,6 @@
         </div>
       </section>
     </div>
-    <script src="./js/app.js"></script>
+    <script src="./js/app.js" type="module"></script>
   </body>
 </html>

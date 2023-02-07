@@ -20,3 +20,8 @@
     }
   }
 }
+
+.selected {
+  opacity: 0.4 !important;
+  border: solid 2px $orange;
+}
