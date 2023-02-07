@@ -27,10 +27,10 @@
             height: 4px;
             background-color: $orange;
             position: absolute;
-            left: 50%;
+            left: 0;
             bottom: -3rem;
-            transform: translateX(-50%);
-            -webkit-transform: translateX(-50%);
+            transform: translateX(0);
+            -webkit-transform: translateX(0);
             transition: all 0.2s ease-in-out;
             width: 0;
           }
