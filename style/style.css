@@ -116,6 +116,58 @@ input[type=number] {
   font-size: 14px;
   font-weight: 700;
 }
+.header_right-cart__bottom-filled {
+  display: none;
+  flex-direction: column;
+  padding: 1rem 1.2rem;
+}
+.header_right-cart__bottom-filled button {
+  cursor: pointer;
+  background-color: #ff7d1a;
+  color: #ffffff;
+  padding: 1rem 0rem;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 16px;
+}
+.header_right-cart__bottom-filled button:hover {
+  opacity: 0.6;
+  transition: all 0.2s ease-in-out;
+  -webkit-box-shadow: 0px 25px 24px -7px rgba(255, 125, 26, 0.26);
+  box-shadow: 0px 25px 24px -7px rgba(255, 125, 26, 0.26);
+}
+.header_right-cart__bottom-filled__text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.header_right-cart__bottom-filled__text-img img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+.header_right-cart__bottom-filled__text-desc__title {
+  color: #b6bcc8;
+}
+.header_right-cart__bottom-filled__text-desc__price {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+.header_right-cart__bottom-filled__text-desc__price-total {
+  font-weight: 700;
+}
+.header_right-cart__bottom-filled__text-desc__price-calculated {
+  color: #b6bcc8;
+}
+.header_right-cart__bottom-filled__text-delete img {
+  cursor: pointer;
+}
 .header_right-cart__icon {
   cursor: pointer;
 }

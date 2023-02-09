@@ -92,7 +92,114 @@ minusBtn.addEventListener("click", (e) => {
 
 const cartIcon = document.querySelector(".header_right-cart__icon");
 const cartModal = document.querySelector(".header_right-cart");
+const addToCartBtn = document.querySelector(".addToCartBtn");
+const emptyCart = document.querySelector(".header_right-cart__bottom-empty");
+const filledCart = document.querySelector(".header_right-cart__bottom-filled");
+const price = 125;
+let title = "Fall Limited Edition Sneakers";
 
 cartIcon.addEventListener("click", () => {
   cartModal.classList.toggle("visible");
+});
+
+function deleteCartElements() {
+  let deleteBtn = document.querySelector(
+    ".header_right-cart__bottom-filled__text-delete"
+  );
+  if (document.contains(deleteBtn)) {
+    deleteBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      filledCart.style.display = "none";
+      document
+        .querySelector(".header_right-cart__bottom-filled__text")
+        .remove();
+      document.querySelector(".cart_btn").remove();
+      emptyCart.style.display = "flex";
+    });
+  }
+}
+
+function addToCart() {
+  const filledCartImg = document.createElement("div");
+  const filledCartText = document.createElement("div");
+  const filledCartDesc = document.createElement("div");
+  const filledCartPrice = document.createElement("div");
+  const priceCalculated = document.createElement("p");
+  const totalPrice = document.createElement("p");
+  const deleteIcon = document.createElement("div");
+  const checkoutButton = document.createElement("button");
+  let total = price * input.value;
+
+  console.log("Ajouté au panier");
+  console.log(price * input.value);
+  emptyCart.style.display = "none";
+  filledCart.style.display = "flex";
+  // Ajout de l'image dans le panier
+  filledCartImg.classList.add("header_right-cart__bottom-filled__text-img");
+  filledCartImg.innerHTML = images[0];
+
+  // Ajout de la description du produit dans le panier
+  filledCartText.classList.add("header_right-cart__bottom-filled__text");
+  filledCartDesc.classList.add("header_right-cart__bottom-filled__text-desc");
+  filledCartPrice.classList.add(
+    "header_right-cart__bottom-filled__text-desc__price"
+  );
+  priceCalculated.classList.add(
+    "header_right-cart__bottom-filled__text-desc__price-calculated"
+  );
+  totalPrice.classList.add(
+    "header_right-cart__bottom-filled__text-desc__price-total"
+  );
+
+  checkoutButton.classList.add("cart_btn");
+  filledCartDesc.innerHTML = `<p class="header_right-cart__bottom-filled__text-desc__title">${title}</p>`;
+  priceCalculated.innerHTML = `<p>$${price} x ${input.value}</p>`;
+  totalPrice.innerHTML = `<p>$${total}</p>`;
+  deleteIcon.classList.add("header_right-cart__bottom-filled__text-delete");
+  deleteIcon.innerHTML = `<img src="./assets/icon-delete.svg" alt="delete icon" />`;
+  checkoutButton.innerHTML = "Checkout";
+
+  // création de tous les éléments
+  filledCart.append(filledCartText);
+  filledCartText.append(filledCartImg);
+  filledCartText.append(filledCartDesc);
+  filledCartDesc.append(filledCartPrice);
+  filledCartPrice.append(priceCalculated);
+  filledCartPrice.append(totalPrice);
+  filledCartText.append(deleteIcon);
+  filledCart.append(checkoutButton);
+
+  // Affichage du panier au clic sur bouton 'Add to cart'
+  cartModal.classList.add("visible");
+
+  deleteCartElements();
+}
+
+addToCartBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  const productQuantity = parseInt(input.value);
+  if (productQuantity > 0) {
+    const existingProduct = [
+      ...filledCart.querySelectorAll(
+        ".header_right-cart__bottom-filled__text-desc__title"
+      ),
+    ].find((item) => item.textContent === title);
+    if (existingProduct) {
+      const existingQuantity = parseInt(
+        existingProduct.nextSibling
+          .querySelector(
+            ".header_right-cart__bottom-filled__text-desc__price-calculated p"
+          )
+          .textContent.match(/\d+/g)[1]
+      );
+      existingProduct.nextSibling.querySelector(
+        ".header_right-cart__bottom-filled__text-desc__price-calculated p"
+      ).textContent = `$${price} x ${existingQuantity + productQuantity}`;
+      existingProduct.nextSibling.querySelector(
+        ".header_right-cart__bottom-filled__text-desc__price-total p"
+      ).textContent = `$${(existingQuantity + productQuantity) * price}`;
+    } else {
+      addToCart();
+    }
+  }
 });
