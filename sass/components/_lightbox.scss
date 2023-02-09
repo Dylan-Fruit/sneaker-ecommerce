@@ -1,7 +1,47 @@
 .lightbox {
   display: none;
-  z-index: 999;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   position: fixed;
-  top: 10%;
-  left: 35%;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  &_close-icon {
+    justify-content: flex-end;
+    width: 30%;
+    margin-bottom: 1rem;
+    svg {
+      cursor: pointer;
+    }
+  }
+  &_mainPicture {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    margin-bottom: 2rem;
+    img {
+      width: 50%;
+      height: 100%;
+      border-radius: 15px;
+    }
+  }
+  &_thumbnails {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    img {
+      cursor: pointer;
+      border-radius: 10px;
+      background-color: $white;
+      width: 10%;
+      &:hover {
+        color: $white;
+      }
+    }
+  }
 }
