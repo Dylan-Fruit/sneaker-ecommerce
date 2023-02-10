@@ -125,11 +125,14 @@ minusBtn.addEventListener("click", (e) => {
 
 // cart
 
-const cartIcon = document.querySelector(".header_right-cart__icon");
+const cartIcon = document.querySelector(".header_right-cart__icon-img");
 const cartModal = document.querySelector(".header_right-cart");
 const addToCartBtn = document.querySelector(".addToCartBtn");
 const emptyCart = document.querySelector(".header_right-cart__bottom-empty");
 const filledCart = document.querySelector(".header_right-cart__bottom-filled");
+const cartQuantity = document.querySelector(
+  ".header_right-cart__icon-quantity"
+);
 const price = 125;
 let title = "Fall Limited Edition Sneakers";
 
@@ -150,6 +153,7 @@ function deleteCartElements() {
         .remove();
       document.querySelector(".cart_btn").remove();
       emptyCart.style.display = "flex";
+      cartQuantity.style.display = "none";
     });
   }
 }
@@ -165,8 +169,6 @@ function addToCart() {
   const checkoutButton = document.createElement("button");
   let total = price * input.value;
 
-  console.log("Ajouté au panier");
-  console.log(price * input.value);
   emptyCart.style.display = "none";
   filledCart.style.display = "flex";
   // Ajout de l'image dans le panier
@@ -193,6 +195,7 @@ function addToCart() {
   deleteIcon.classList.add("header_right-cart__bottom-filled__text-delete");
   deleteIcon.innerHTML = `<img src="./assets/icon-delete.svg" alt="delete icon" />`;
   checkoutButton.innerHTML = "Checkout";
+  cartQuantity.innerHTML = input.value;
 
   // création de tous les éléments
   filledCart.append(filledCartText);
@@ -204,8 +207,9 @@ function addToCart() {
   filledCartText.append(deleteIcon);
   filledCart.append(checkoutButton);
 
-  // Affichage du panier au clic sur bouton 'Add to cart'
+  // Affichage du panier au clic sur bouton 'Add to cart' et de la quantité sur l'icône
   cartModal.classList.add("visible");
+  cartQuantity.style.display = "flex";
 
   deleteCartElements();
 }
@@ -230,6 +234,7 @@ addToCartBtn.addEventListener("click", (e) => {
       existingProduct.nextSibling.querySelector(
         ".header_right-cart__bottom-filled__text-desc__price-calculated p"
       ).textContent = `$${price} x ${existingQuantity + productQuantity}`;
+      cartQuantity.textContent = existingQuantity + productQuantity;
       existingProduct.nextSibling.querySelector(
         ".header_right-cart__bottom-filled__text-desc__price-total p"
       ).textContent = `$${(existingQuantity + productQuantity) * price}`;
