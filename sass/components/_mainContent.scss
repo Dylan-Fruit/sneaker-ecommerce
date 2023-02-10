@@ -66,6 +66,9 @@
         position: absolute;
         cursor: pointer;
         left: 0.6rem;
+        &:hover {
+          opacity: 0.7;
+        }
       }
       &-plus {
         display: flex;
@@ -73,6 +76,9 @@
         position: absolute;
         cursor: pointer;
         right: 2.7rem;
+        &:hover {
+          opacity: 0.7;
+        }
       }
     }
     &__btn {

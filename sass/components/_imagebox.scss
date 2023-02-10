@@ -10,7 +10,12 @@
   &-thumbnail {
     display: flex;
     gap: 1rem;
-    img {
+    span {
+      width: 22.3%;
+      border: solid 2px $orange;
+      border-radius: 12px;
+    }
+    &__img {
       width: 22.3%;
       cursor: pointer;
       border-radius: 10px;
@@ -23,5 +28,6 @@
 
 .selected {
   opacity: 0.4 !important;
-  border: solid 2px $orange;
+  height: 100%;
+  width: 100%;
 }
