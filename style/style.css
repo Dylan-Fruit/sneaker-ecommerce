@@ -334,6 +334,10 @@ input[type=number] {
 .lightbox_close-icon svg {
   cursor: pointer;
 }
+.lightbox_close-icon svg:hover path {
+  fill: #ff7d1a;
+  transition: all 0.2s ease-in-out;
+}
 .lightbox_mainPicture {
   display: flex;
   align-items: center;
@@ -345,6 +349,27 @@ input[type=number] {
   width: 50%;
   height: 100%;
   border-radius: 15px;
+}
+.lightbox_previous, .lightbox_next {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.3rem 1.5rem;
+  top: 19rem;
+  background-color: white;
+  position: absolute;
+  cursor: pointer;
+}
+.lightbox_previous:hover svg path, .lightbox_next:hover svg path {
+  stroke: #ff7d1a;
+  transition: all 0.2s ease-in-out;
+}
+.lightbox_next {
+  right: 31.3rem;
+}
+.lightbox_previous {
+  left: 31.3rem;
 }
 .lightbox_thumbnails {
   display: flex;

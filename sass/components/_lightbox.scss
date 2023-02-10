@@ -15,6 +15,12 @@
     margin-bottom: 1rem;
     svg {
       cursor: pointer;
+      &:hover {
+        path {
+          fill: $orange;
+          transition: all 0.2s ease-in-out;
+        }
+      }
     }
   }
   &_mainPicture {
@@ -28,6 +34,32 @@
       height: 100%;
       border-radius: 15px;
     }
+  }
+  &_previous,
+  &_next {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.3rem 1.5rem;
+    top: 19rem;
+    background-color: white;
+    position: absolute;
+    cursor: pointer;
+    &:hover {
+      svg {
+        path {
+          stroke: $orange;
+          transition: all 0.2s ease-in-out;
+        }
+      }
+    }
+  }
+  &_next {
+    right: 31.3rem;
+  }
+  &_previous {
+    left: 31.3rem;
   }
   &_thumbnails {
     display: flex;

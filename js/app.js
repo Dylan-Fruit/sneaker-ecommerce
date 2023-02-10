@@ -6,6 +6,8 @@ const lightboxThumbnails = document.querySelector(".lightbox_thumbnails");
 const bigPicture = document.querySelector(".main_imagebox-big");
 const closeCross = document.querySelector(".closeCross");
 const closeDiv = document.querySelector(".lightbox_close-icon");
+const next = document.querySelector(".lightbox_next");
+const previous = document.querySelector(".lightbox_previous");
 
 const images = [
   `<img src="./assets/image-product-1.jpg" alt="product image">`,
@@ -33,6 +35,17 @@ const thumbnails = [
 />`,
 ];
 
+function updateSelectedClass(index) {
+  const thumbnailsElements = lightboxThumbnails.querySelectorAll("img");
+  thumbnailsElements.forEach((thumbnail, i) => {
+    if (i === index) {
+      thumbnail.classList.add("selected");
+    } else {
+      thumbnail.classList.remove("selected");
+    }
+  });
+}
+
 bigPicture.addEventListener("click", (e) => {
   e.preventDefault();
   const index = images.indexOf(bigPicture.innerHTML.trim());
@@ -44,7 +57,7 @@ bigPicture.addEventListener("click", (e) => {
     thumbnails.forEach((thumbnail) => {
       lightboxThumbnails.innerHTML += thumbnail;
     });
-
+    updateSelectedClass(currentIndex);
     addOverlay();
   }
 });
@@ -69,6 +82,28 @@ function removeOverlay() {
     document.querySelector(".overlay").remove();
   }
 }
+
+let currentIndex = 0;
+
+next.addEventListener("click", (e) => {
+  e.preventDefault();
+  currentIndex = currentIndex + 1;
+  if (currentIndex >= images.length) {
+    currentIndex = 0;
+  }
+  lightboxMainPic.innerHTML = images[currentIndex];
+  updateSelectedClass(currentIndex);
+});
+
+previous.addEventListener("click", (e) => {
+  e.preventDefault();
+  currentIndex = currentIndex - 1;
+  if (currentIndex < 0) {
+    currentIndex = images.length - 1;
+  }
+  lightboxMainPic.innerHTML = images[currentIndex];
+  updateSelectedClass(currentIndex);
+});
 
 // input event
 
