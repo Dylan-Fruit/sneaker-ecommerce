@@ -9,6 +9,9 @@
     display: flex;
     align-items: center;
     gap: 4rem;
+    &-closeMenu {
+      display: none;
+    }
     &-nav {
       &__ul {
         display: flex;

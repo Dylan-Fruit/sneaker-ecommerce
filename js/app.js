@@ -3,6 +3,7 @@
 const lightbox = document.querySelector(".lightbox");
 const lightboxMainPic = document.querySelector(".lightbox_mainPicture");
 const lightboxThumbnails = document.querySelector(".lightbox_thumbnails");
+const mainThumbnails = document.querySelector(".main_imagebox-thumbnail");
 const bigPicture = document.querySelector(".main_imagebox-big");
 const closeCross = document.querySelector(".closeCross");
 const closeDiv = document.querySelector(".lightbox_close-icon");
@@ -39,9 +40,9 @@ function updateSelectedClass(index) {
   const thumbnailsElements = lightboxThumbnails.querySelectorAll("img");
   thumbnailsElements.forEach((thumbnail, i) => {
     if (i === index) {
-      thumbnail.classList.add("selected");
+      thumbnail.classList.add("selected-lightbox");
     } else {
-      thumbnail.classList.remove("selected");
+      thumbnail.classList.remove("selected-lightbox");
     }
   });
 }

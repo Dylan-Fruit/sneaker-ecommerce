@@ -1,0 +1,132 @@
+@media screen and (max-width: 768px) {
+  body {
+    margin: 0;
+  }
+
+  .main {
+    flex-direction: column;
+    gap: 0;
+    margin: 0 0 4rem 0;
+    &_imagebox {
+      &-big {
+        img {
+          border-radius: 0;
+          max-height: 320px;
+          height: 100%;
+          margin-bottom: 0;
+          object-fit: cover;
+        }
+      }
+      &-thumbnail {
+        display: none;
+      }
+    }
+    &_content {
+      padding: 1rem 2rem;
+      h3 {
+        font-size: 12px;
+      }
+      h1 {
+        font-size: 25px;
+        margin-bottom: 1rem;
+      }
+      &-prices {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+      &-price {
+        p {
+          font-size: 1.8rem;
+        }
+        span {
+          font-size: 16px;
+        }
+      }
+      &-oldPrice {
+        margin-bottom: 0;
+        font-size: 16px;
+      }
+      &-addToCart {
+        flex-direction: column;
+        &__input {
+          width: 100%;
+          margin-bottom: 0.8rem;
+          #product_quantity {
+            width: 100%;
+            font-size: 16px;
+          }
+          &-plus {
+            right: 1.5rem;
+          }
+          &-minus {
+            left: 1.5rem;
+          }
+        }
+        &__btn {
+          svg {
+            left: 5rem;
+          }
+          button {
+            padding: 1rem 7.5rem;
+            width: 100%;
+            -webkit-box-shadow: 0px 25px 24px -7px rgba(255, 125, 26, 0.26);
+            box-shadow: 0px 25px 24px -7px rgba(255, 125, 26, 0.26);
+          }
+        }
+      }
+    }
+  }
+
+  .header {
+    margin: 0;
+    padding: 18px 22px;
+    &_left {
+      display: flex;
+      gap: 0;
+      &-closeMenu {
+        display: block;
+        margin-right: 20px;
+      }
+      &-logo {
+        padding-bottom: 3px;
+      }
+      ul {
+        display: none;
+      }
+    }
+    &_right {
+      &-cart {
+        width: 380px;
+        right: -1rem;
+      }
+      &-avatar {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .header {
+    &_right {
+      &-cart {
+        width: 365px;
+      }
+    }
+  }
+
+  .main {
+    &_content {
+      &-addToCart {
+        &__btn {
+          button {
+            padding: 1rem 7rem;
+          }
+        }
+      }
+    }
+  }
+}
