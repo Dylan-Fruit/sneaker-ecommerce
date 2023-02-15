@@ -69,10 +69,6 @@ function updateSelectedClass(index) {
   });
 }
 
-if (window.innerWidth <= 768) {
-  bigPicture.removeEventListener("click", false);
-}
-
 bigPicture.addEventListener("click", (e) => {
   e.preventDefault();
   const index = images.indexOf(bigPicture.innerHTML.trim());
