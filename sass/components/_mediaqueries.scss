@@ -8,8 +8,32 @@
     gap: 0;
     margin: 0 0 4rem 0;
     &_imagebox {
+      position: relative;
+      &-previous,
+      &-next {
+        position: absolute;
+        top: 40%;
+        display: flex;
+        background-color: $white;
+        border-radius: 50%;
+        cursor: pointer;
+        svg {
+          path {
+            stroke-width: 4;
+          }
+        }
+      }
+      &-previous {
+        left: 1rem;
+        padding: 15px 20px 15px 18px;
+      }
+      &-next {
+        right: 1rem;
+        padding: 15px 18px 15px 20px;
+      }
       &-big {
         img {
+          cursor: default;
           border-radius: 0;
           max-height: 320px;
           height: 100%;

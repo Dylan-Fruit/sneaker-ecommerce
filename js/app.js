@@ -69,7 +69,11 @@ function updateSelectedClass(index) {
   });
 }
 
-bigPicture.addEventListener("click", (e) => {
+const mobileMaxWidth = 768;
+let isMobile = window.innerWidth <= mobileMaxWidth;
+let isBigPictureEventListenerAdded = !isMobile;
+
+function handleBigPictureClick(e) {
   e.preventDefault();
   const index = images.indexOf(bigPicture.innerHTML.trim());
   if (index !== -1) {
@@ -82,6 +86,23 @@ bigPicture.addEventListener("click", (e) => {
     });
     updateSelectedClass(currentIndex);
     addOverlay();
+  }
+}
+
+if (isBigPictureEventListenerAdded) {
+  bigPicture.addEventListener("click", handleBigPictureClick);
+}
+
+window.addEventListener("resize", () => {
+  isMobile = window.innerWidth <= mobileMaxWidth;
+  if (isMobile) {
+    bigPicture.removeEventListener("click", handleBigPictureClick);
+    isBigPictureEventListenerAdded = false;
+  } else {
+    if (!isBigPictureEventListenerAdded) {
+      bigPicture.addEventListener("click", handleBigPictureClick);
+      isBigPictureEventListenerAdded = true;
+    }
   }
 });
 
@@ -126,6 +147,29 @@ previous.addEventListener("click", (e) => {
   }
   lightboxMainPic.innerHTML = images[currentIndex];
   updateSelectedClass(currentIndex);
+});
+
+// Mobile image carousel
+
+const previousMobile = document.querySelector(".main_imagebox-previous");
+const nextMobile = document.querySelector(".main_imagebox-next");
+
+nextMobile.addEventListener("click", (e) => {
+  e.preventDefault();
+  currentIndex = currentIndex + 1;
+  if (currentIndex >= images.length) {
+    currentIndex = 0;
+  }
+  bigPicture.innerHTML = images[currentIndex];
+});
+
+previousMobile.addEventListener("click", (e) => {
+  e.preventDefault();
+  currentIndex = currentIndex - 1;
+  if (currentIndex < 0) {
+    currentIndex = images.length - 1;
+  }
+  bigPicture.innerHTML = images[currentIndex];
 });
 
 // input event
