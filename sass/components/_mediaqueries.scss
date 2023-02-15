@@ -85,15 +85,37 @@
     &_left {
       display: flex;
       gap: 0;
-      &-closeMenu {
+      &-showMenu {
         display: block;
+        cursor: pointer;
         margin-right: 20px;
+      }
+      &-closeMenu {
+        cursor: pointer;
+        margin-right: 20px;
+        position: fixed;
+        z-index: 99999;
       }
       &-logo {
         padding-bottom: 3px;
       }
-      ul {
-        display: none;
+      &-nav {
+        &__ul {
+          display: none;
+          flex-direction: column;
+          position: fixed;
+          left: 0;
+          top: 0;
+          background-color: $white;
+          height: 100%;
+          width: 60%;
+          z-index: 9999;
+          padding: 6rem 2rem;
+          li {
+            color: $black;
+            font-weight: 700;
+          }
+        }
       }
     }
     &_right {

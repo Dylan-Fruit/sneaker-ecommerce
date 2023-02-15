@@ -45,7 +45,7 @@ input[type=number] {
   align-items: center;
   gap: 4rem;
 }
-.header_left-closeMenu {
+.header_left-showMenu, .header_left-closeMenu {
   display: none;
 }
 .header_left-nav__ul {
@@ -507,15 +507,35 @@ input[type=number] {
     display: flex;
     gap: 0;
   }
-  .header_left-closeMenu {
+  .header_left-showMenu {
     display: block;
+    cursor: pointer;
     margin-right: 20px;
+  }
+  .header_left-closeMenu {
+    cursor: pointer;
+    margin-right: 20px;
+    position: fixed;
+    z-index: 99999;
   }
   .header_left-logo {
     padding-bottom: 3px;
   }
-  .header_left ul {
+  .header_left-nav__ul {
     display: none;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #ffffff;
+    height: 100%;
+    width: 60%;
+    z-index: 9999;
+    padding: 6rem 2rem;
+  }
+  .header_left-nav__ul li {
+    color: #000000;
+    font-weight: 700;
   }
   .header_right-cart {
     width: 380px;

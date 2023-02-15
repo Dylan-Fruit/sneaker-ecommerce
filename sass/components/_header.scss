@@ -9,6 +9,7 @@
     display: flex;
     align-items: center;
     gap: 4rem;
+    &-showMenu,
     &-closeMenu {
       display: none;
     }

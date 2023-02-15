@@ -1,3 +1,25 @@
+// Menu navbar mobile
+
+const showMenu = document.querySelector(".header_left-showMenu");
+const closeMenu = document.querySelector(".header_left-closeMenu");
+const navMenu = document.querySelector(".header_left-nav__ul");
+
+showMenu.addEventListener("click", (e) => {
+  e.preventDefault();
+  navMenu.style.display = "flex";
+  closeMenu.style.display = "block";
+  showMenu.style.display = "none";
+  addOverlay();
+});
+
+closeMenu.addEventListener("click", (e) => {
+  e.preventDefault();
+  navMenu.style.display = "none";
+  closeMenu.style.display = "none";
+  showMenu.style.display = "block";
+  removeOverlay();
+});
+
 // Lightbox
 
 const lightbox = document.querySelector(".lightbox");
@@ -45,6 +67,10 @@ function updateSelectedClass(index) {
       thumbnail.classList.remove("selected-lightbox");
     }
   });
+}
+
+if (window.innerWidth <= 768) {
+  bigPicture.removeEventListener("click", false);
 }
 
 bigPicture.addEventListener("click", (e) => {
