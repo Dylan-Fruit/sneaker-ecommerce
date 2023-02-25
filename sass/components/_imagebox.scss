@@ -6,7 +6,8 @@
   &-big {
     img {
       cursor: pointer;
-      width: 100%;
+      max-width: 454px;
+      max-height: 454px;
       border-radius: 15px;
       margin-bottom: 1rem;
     }
@@ -20,7 +21,8 @@
       border-radius: 12px;
     }
     &__img {
-      width: 22.3%;
+      width: 100px;
+      height: 100px;
       cursor: pointer;
       border-radius: 10px;
       &:hover {

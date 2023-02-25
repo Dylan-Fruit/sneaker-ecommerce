@@ -1,4 +1,14 @@
-@media screen and (max-width: 768px) {
+// Écran de 1440px et plus
+
+@media screen and (min-width: 1600px) {
+  body {
+    margin: 2rem 19rem;
+  }
+}
+
+// Écran de 1108px ou moins (propriétés générales, les autres valuers sont des ajustements selon les dimensions d'écrans)
+
+@media screen and (max-width: 1108px) {
   body {
     margin: 0;
   }
@@ -35,8 +45,10 @@
         img {
           cursor: default;
           border-radius: 0;
-          max-height: 320px;
+          max-height: 450px;
           height: 100%;
+          max-width: 1108px;
+          width: 100%;
           margin-bottom: 0;
           object-fit: cover;
         }
@@ -46,7 +58,7 @@
       }
     }
     &_content {
-      padding: 1rem 2rem;
+      padding: 5rem 10rem;
       h3 {
         font-size: 12px;
       }
@@ -89,12 +101,12 @@
           }
         }
         &__btn {
+          width: 100%;
           svg {
             left: 5rem;
           }
           button {
             padding: 1rem 7.5rem;
-            width: 100%;
             -webkit-box-shadow: 0px 25px 24px -7px rgba(255, 125, 26, 0.26);
             box-shadow: 0px 25px 24px -7px rgba(255, 125, 26, 0.26);
           }
@@ -138,6 +150,11 @@
           li {
             color: $black;
             font-weight: 700;
+            &:hover {
+              &::after {
+                width: 0;
+              }
+            }
           }
         }
       }
@@ -155,6 +172,54 @@
   }
 }
 
+// Écran entre 376px et 768px
+
+@media screen and (min-width: 376px) and (max-width: 768px) {
+  .main {
+    &_imagebox {
+      &-big {
+        img {
+          max-height: 320px;
+          height: 100%;
+        }
+      }
+    }
+    &_content {
+      padding: 1rem 2rem;
+      &-addToCart {
+        flex-direction: column;
+        &__input {
+          width: 100%;
+          margin-bottom: 0.8rem;
+          #product_quantity {
+            width: 100%;
+            font-size: 16px;
+          }
+          &-plus {
+            right: 1.5rem;
+          }
+          &-minus {
+            left: 1.5rem;
+          }
+        }
+        &__btn {
+          svg {
+            left: 5rem;
+          }
+          button {
+            padding: 1rem 7.5rem;
+            width: 100%;
+            -webkit-box-shadow: 0px 25px 24px -7px rgba(255, 125, 26, 0.26);
+            box-shadow: 0px 25px 24px -7px rgba(255, 125, 26, 0.26);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Écran de 375px et moins
+
 @media screen and (max-width: 375px) {
   .header {
     &_right {
@@ -166,6 +231,7 @@
 
   .main {
     &_content {
+      padding: 1rem 2rem;
       &-addToCart {
         &__btn {
           button {

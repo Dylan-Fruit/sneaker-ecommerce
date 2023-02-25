@@ -23,7 +23,7 @@ closeMenu.addEventListener("click", (e) => {
 // Lightbox
 
 const lightbox = document.querySelector(".lightbox");
-const lightboxMainPic = document.querySelector(".lightbox_mainPicture");
+const lightboxMainPic = document.querySelector(".lightbox_mainPicture-img");
 const lightboxThumbnails = document.querySelector(".lightbox_thumbnails");
 const mainThumbnails = document.querySelector(".main_imagebox-thumbnail");
 const bigPicture = document.querySelector(".main_imagebox-big");
@@ -69,7 +69,7 @@ function updateSelectedClass(index) {
   });
 }
 
-const mobileMaxWidth = 768;
+const mobileMaxWidth = 1108;
 let isMobile = window.innerWidth <= mobileMaxWidth;
 let isBigPictureEventListenerAdded = !isMobile;
 
@@ -102,6 +102,8 @@ window.addEventListener("resize", () => {
     if (!isBigPictureEventListenerAdded) {
       bigPicture.addEventListener("click", handleBigPictureClick);
       isBigPictureEventListenerAdded = true;
+      removeOverlay();
+      closeMenu.style.display = "none";
     }
   }
 });
